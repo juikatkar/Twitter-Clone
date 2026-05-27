@@ -46,6 +46,19 @@ export default function PostTweetPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-pink-100 via-orange-100 to-yellow-100 p-6 md:p-10">
+      {/* <nav className="mx-auto m-10 flex max-w-6xl flex-col items-center justify-between gap-6 rounded-3xl bg-white px-8 py-6 shadow-sm md:flex-row md:px-12">
+        <div className="flex gap-8 text-xl font-medium text-orange-500 md:text-2xl">
+          <Link className="hover:text-orange-600" href="/home">
+            Home
+          </Link>
+
+          <Link className="hover:text-orange-600" href="/post-tweet">
+            Post a Tweet
+          </Link>
+        </div>
+      </nav> */}
+
+
       <div className="mx-auto max-w-3xl rounded-3xl bg-white p-8 shadow-xl md:p-10">
         <Link
           href="/home"
@@ -53,7 +66,6 @@ export default function PostTweetPage() {
         >
           ← Back
         </Link>
-
         <h1 className="mt-8 text-4xl font-bold text-orange-500 md:text-5xl">
           Create Tweet
         </h1>
