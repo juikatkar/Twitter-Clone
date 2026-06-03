@@ -62,16 +62,14 @@ export default function LoginPage() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-2xl border border-orange-200 p-5 text-xl outline-none focus:border-orange-500"
-          />
+            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-5 text-xl text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500" />
 
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-2xl border border-orange-200 p-5 text-xl outline-none focus:border-orange-500"
-          />
+            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-5 text-xl text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500" />
 
           <button
             type="submit"
@@ -82,7 +80,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="mt-8 text-center text-lg text-gray-600">
+        <p className="mt-8 text-center text-lg text-gray-900">
           Don&apos;t have an account?{" "}
           <Link href="/register" className="text-orange-500 hover:underline">
             Register

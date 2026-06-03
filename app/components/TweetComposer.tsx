@@ -22,7 +22,7 @@ export default function TweetComposer() {
 
         <Link
           href="/post-tweet"
-          className="rounded-2xl bg-orange-500 px-8 py-3 text-2xl font-semibold text-white transition hover:bg-orange-600"
+          className="rounded-2xl bg-orange-500 px-8 py-3 text-2xl font-semibold text-white transition hover:bg-orange-600 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
         >
           Tweet
         </Link>

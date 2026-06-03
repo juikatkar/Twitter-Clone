@@ -81,8 +81,7 @@ export default function PostTweetPage() {
             onChange={(e) =>
               setTitle(e.target.value)
             }
-            className="w-full rounded-2xl border border-orange-200 p-5 text-xl outline-none focus:border-orange-500 md:text-2xl"
-          />
+            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-5 text-xl text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500 md:text-2xl" />
 
           <textarea
             placeholder="What is happening?"
@@ -91,8 +90,7 @@ export default function PostTweetPage() {
             onChange={(e) =>
               setBody(e.target.value)
             }
-            className="w-full rounded-2xl border border-orange-200 p-5 text-xl outline-none focus:border-orange-500 md:text-2xl"
-          />
+            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-5 text-xl text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500 md:text-2xl" />
 
           <button
             type="submit"

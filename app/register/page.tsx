@@ -84,8 +84,7 @@ export default function RegisterPage() {
             onChange={(e) =>
               setName(e.target.value)
             }
-            className="w-full rounded-2xl border border-orange-200 p-5 text-xl outline-none focus:border-orange-500"
-          />
+            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-5 text-xl text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500" />
 
           <input
             type="text"
@@ -96,8 +95,7 @@ export default function RegisterPage() {
                 e.target.value
               )
             }
-            className="w-full rounded-2xl border border-orange-200 p-5 text-xl outline-none focus:border-orange-500"
-          />
+            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-5 text-xl text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500" />
 
           <input
             type="email"
@@ -106,8 +104,7 @@ export default function RegisterPage() {
             onChange={(e) =>
               setEmail(e.target.value)
             }
-            className="w-full rounded-2xl border border-orange-200 p-5 text-xl outline-none focus:border-orange-500"
-          />
+            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-5 text-xl text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500" />
 
           <input
             type="password"
@@ -118,8 +115,7 @@ export default function RegisterPage() {
                 e.target.value
               )
             }
-            className="w-full rounded-2xl border border-orange-200 p-5 text-xl outline-none focus:border-orange-500"
-          />
+            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-5 text-xl text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500" />
 
           <button
             type="submit"
