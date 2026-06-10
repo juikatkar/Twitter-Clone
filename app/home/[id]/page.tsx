@@ -69,19 +69,25 @@ export default async function TweetPage({ params }: PageProps) {
         </p>
 
         <div className="mt-6 flex items-center justify-between border-t pt-5 text-lg text-gray-500">
-          <button
-            type="button"
-            className="group flex items-center gap-2 rounded-full px-4 py-2 transition hover:bg-red-50"
-          >
-            <span className="text-2xl transition duration-200 group-hover:scale-125 group-hover:drop-shadow-lg active:scale-90">
+          <div className="group flex items-center gap-2 rounded-full px-4 py-2">
+            <span className="text-2xl">
               ❤️
             </span>
 
-            <span className="font-medium transition group-hover:text-red-500">
-              Like
+            <span className="font-medium">
+              {tweet.likes?.length || 0} Like
             </span>
-          </button>
+          </div>
 
+          <div className="flex items-center gap-2 rounded-full px-4 py-2">
+            <span className="text-2xl">
+              👁️
+            </span>
+
+            <span>
+              View
+            </span>
+          </div>
         </div>
       </article>
     </main>

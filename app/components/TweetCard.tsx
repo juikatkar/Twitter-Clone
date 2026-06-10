@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { useState } from "react"
 
 type TweetCardProps = {
   post: {
@@ -6,6 +9,7 @@ type TweetCardProps = {
     title: string
     body: string
     createdAt?: string
+    likes?: string[]
     user?: {
       name: string
       username: string
@@ -14,6 +18,30 @@ type TweetCardProps = {
 }
 
 export default function TweetCard({ post }: TweetCardProps) {
+  const [likesCount, setLikesCount] = useState(post.likes?.length || 0)
+
+  async function handleLike(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault()
+    e.stopPropagation()
+
+    try {
+      const res = await fetch(`/api/tweets/${post._id}/like`, {
+        method: "POST",
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        alert(data.message || "Failed to like tweet")
+        return
+      }
+
+      setLikesCount(data.likesCount)
+    } catch (error) {
+      console.log(error)
+      alert("Something went wrong")
+    }
+  }
   return (
     <Link
       href={`/home/${post._id}`}
@@ -46,6 +74,7 @@ export default function TweetCard({ post }: TweetCardProps) {
           <div className="mt-6 flex items-center justify-between border-t pt-5 text-lg text-gray-500">
             <button
               type="button"
+              onClick={handleLike}
               className="group flex items-center gap-2 rounded-full px-4 py-2 transition hover:bg-red-50"
             >
               <span className="text-2xl transition duration-200 group-hover:scale-125 group-hover:drop-shadow-lg active:scale-90">
@@ -53,13 +82,11 @@ export default function TweetCard({ post }: TweetCardProps) {
               </span>
 
               <span className="font-medium transition group-hover:text-red-500">
-                Like
+                {likesCount} Like
               </span>
             </button>
-
             <div className="flex items-center gap-2 rounded-full px-4 py-2 transition hover:bg-blue-50 hover:text-blue-500">
               <span className="text-2xl">👁️</span>
-
               <span>View</span>
             </div>
           </div>
