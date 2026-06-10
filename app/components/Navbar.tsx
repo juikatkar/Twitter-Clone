@@ -3,18 +3,30 @@ import Link from "next/link"
 export default function Navbar() {
   return (
     <nav className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 rounded-3xl bg-white px-8 py-6 shadow-sm md:flex-row md:px-12">
-      <Link href="/" className="text-4xl font-bold text-orange-600 md:text-5xl">
-        Let&apos;s Tweet
+      <Link
+        href="/"
+        className="group flex items-center gap-3"
+      >
+        <span className="text-4xl transition duration-300 group-hover:-translate-y-1 group-hover:rotate-12">
+          🕊️
+        </span>
+
+        <h1 className="text-3xl font-bold text-orange-600 transition duration-300 group-hover:text-orange-500 md:text-4xl">
+          Let&apos;s Tweet
+        </h1>
       </Link>
 
-      <div className="flex gap-8 text-xl font-medium text-orange-500 md:text-2xl">
-        <Link className="hover:text-orange-600" href="/login">
+      <div className="flex flex-wrap items-center gap-4">
+        <Link
+          href="/login"
+          className="rounded-2xl border border-orange-500 px-6 py-3 text-lg font-medium text-orange-500 transition duration-300 hover:-translate-y-1 hover:bg-orange-50 hover:shadow-md md:text-xl"
+        >
           Login
         </Link>
 
         <Link
           href="/register"
-          className="rounded-2xl bg-orange-500 px-6 py-3 text-white transition hover:bg-orange-600"
+          className="rounded-2xl bg-orange-500 px-6 py-3 text-lg font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-lg md:text-xl"
         >
           Register
         </Link>

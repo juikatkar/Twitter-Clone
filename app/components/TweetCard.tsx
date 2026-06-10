@@ -10,6 +10,7 @@ type TweetCardProps = {
     body: string
     createdAt?: string
     likes?: string[]
+    comments?: unknown[]
     user?: {
       name: string
       username: string
@@ -85,8 +86,16 @@ export default function TweetCard({ post }: TweetCardProps) {
                 {likesCount} Like
               </span>
             </button>
+
+            <div className="flex items-center gap-2 rounded-full px-4 py-2 transition hover:bg-orange-50 hover:text-orange-500">
+              <span className="text-2xl">💬</span>
+
+              <span>{post.comments?.length || 0} Comment</span>
+            </div>
+
             <div className="flex items-center gap-2 rounded-full px-4 py-2 transition hover:bg-blue-50 hover:text-blue-500">
               <span className="text-2xl">👁️</span>
+
               <span>View</span>
             </div>
           </div>

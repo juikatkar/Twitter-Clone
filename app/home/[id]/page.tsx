@@ -1,6 +1,7 @@
 import Link from "next/link"
 import connectDB from "@/app/lib/mongodb"
 import Tweet from "@/app/models/Tweet"
+import CommentForm from "@/app/components/CommentForm"
 
 type PageProps = {
   params: Promise<{
@@ -13,10 +14,9 @@ export default async function TweetPage({ params }: PageProps) {
 
   await connectDB()
 
-  const tweet = await Tweet.findById(id).populate(
-    "user",
-    "name username email"
-  )
+  const tweet = await Tweet.findById(id)
+    .populate("user", "name username email")
+    .populate("comments.user", "name username")
 
   if (!tweet) {
     return (
@@ -70,23 +70,49 @@ export default async function TweetPage({ params }: PageProps) {
 
         <div className="mt-6 flex items-center justify-between border-t pt-5 text-lg text-gray-500">
           <div className="group flex items-center gap-2 rounded-full px-4 py-2">
-            <span className="text-2xl">
-              ❤️
-            </span>
+            <span className="text-2xl">❤️</span>
 
             <span className="font-medium">
               {tweet.likes?.length || 0} Like
             </span>
           </div>
 
-          <div className="flex items-center gap-2 rounded-full px-4 py-2">
-            <span className="text-2xl">
-              👁️
-            </span>
+        </div>
 
-            <span>
-              View
-            </span>
+        <CommentForm tweetId={tweet._id.toString()} />
+
+        <div className="mt-10 border-t pt-8">
+          <h3 className="text-2xl font-bold text-orange-500">
+            Comments
+          </h3>
+
+          <div className="mt-6 space-y-4">
+            {tweet.comments.length === 0 && (
+              <p className="text-gray-500">
+                No comments yet. Be the first to comment.
+              </p>
+            )}
+
+            {tweet.comments.map((comment: any) => (
+              <div
+                key={comment._id.toString()}
+                className="rounded-2xl bg-orange-50 p-5"
+              >
+                <div className="flex items-center gap-2">
+                  <p className="font-bold text-orange-600">
+                    {comment.user?.name || "Unknown User"}
+                  </p>
+
+                  <span className="text-gray-500">
+                    @{comment.user?.username || "unknown"}
+                  </span>
+                </div>
+
+                <p className="mt-3 text-lg text-gray-800">
+                  {comment.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </article>
