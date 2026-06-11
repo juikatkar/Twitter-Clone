@@ -33,7 +33,12 @@ export default function HomeNavbar() {
         >
           Post Tweet
         </Link>
-
+        <Link
+          href="/profile"
+          className="rounded-2xl px-5 py-3 transition duration-300 hover:-translate-y-1 hover:bg-orange-50 hover:text-orange-600 hover:shadow-md"
+        >
+          Profile
+        </Link>
         <LogoutButton />
       </div>
     </nav>

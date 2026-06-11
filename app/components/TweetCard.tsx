@@ -43,6 +43,7 @@ export default function TweetCard({ post }: TweetCardProps) {
       alert("Something went wrong")
     }
   }
+
   return (
     <Link
       href={`/home/${post._id}`}
@@ -54,16 +55,21 @@ export default function TweetCard({ post }: TweetCardProps) {
         </div>
 
         <div className="flex-1">
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex items-center">
             <h2 className="text-xl font-bold text-orange-500">
               {post.user?.name || "Unknown User"}
             </h2>
 
-            <span className="text-gray-600">
+            <span className="ml-3 text-gray-600">
               @{post.user?.username || "unknown"}
             </span>
-          </div>
 
+            {post.createdAt && (
+              <span className="ml-auto text-sm text-gray-400">
+                {new Date(post.createdAt).toLocaleString()}
+              </span>
+            )}
+          </div>
           <h3 className="mt-4 text-xl font-semibold text-orange-600">
             {post.title}
           </h3>
