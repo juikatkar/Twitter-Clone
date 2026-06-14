@@ -45,51 +45,67 @@ export default function PostTweetPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-100 via-orange-100 to-yellow-100 p-5 md:p-8">
-      <div className="mx-auto max-w-2xl rounded-3xl bg-white p-6 shadow-lg md:p-8">
+    <main className="min-h-screen bg-gradient-to-br from-pink-100 via-orange-100 to-yellow-100 px-5 py-8">
+      <div className="mx-auto max-w-2xl rounded-[2rem] bg-white p-7 shadow-xl">
         <Link
           href="/home"
-          className="text-base text-blue-600 hover:underline"
+          className="text-sm font-medium text-blue-600 hover:underline"
         >
           ← Back
         </Link>
 
-        <h1 className="mt-5 text-xl font-bold text-orange-500 md:text-3xl">
-          Create Tweet
-        </h1>
+        <div className="mt-4 flex flex-col items-center text-center">
+          <div className="text-3xl transition duration-300 hover:-translate-y-1 hover:scale-110">
+            🕊️
+          </div>
+
+          <h1 className="mt-3 text-2xl font-bold text-orange-500">
+            Create a Tweet
+          </h1>
+
+          <p className="mt-2 text-sm text-gray-500">
+            Share your thoughts with the TweetSpace community.
+          </p>
+        </div>
 
         <form
           onSubmit={handleSubmit}
           className="mt-8 space-y-5"
         >
-          <input
-            type="text"
-            placeholder="Tweet title"
-            value={title}
-            onChange={(e) =>
-              setTitle(e.target.value)
-            }
-            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-4 text-lg text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500"
-          />
+          <div>
 
-          <textarea
-            placeholder="What is happening?"
-            rows={6}
-            value={body}
-            onChange={(e) =>
-              setBody(e.target.value)
-            }
-            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-4 text-lg text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500"
-          />
+            <input
+              type="text"
+              placeholder="Enter a title..."
+              value={title}
+              onChange={(e) =>
+                setTitle(e.target.value)
+              }
+              className="w-full rounded-2xl border border-orange-200 bg-orange-50 px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-orange-500 focus:bg-white"
+            />
+          </div>
+
+          <div>
+
+            <textarea
+              placeholder="Share your thoughts..."
+              rows={6}
+              value={body}
+              onChange={(e) =>
+                setBody(e.target.value)
+              }
+              className="w-full rounded-2xl border border-orange-200 bg-orange-50 px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-orange-500 focus:bg-white"
+            />
+          </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-2xl bg-orange-500 py-4 text-xl font-bold text-white transition hover:bg-orange-600 disabled:opacity-50"
+            className="w-full rounded-2xl bg-orange-500 py-3 text-lg font-semibold text-white transition hover:-translate-y-0.5 hover:bg-orange-600 hover:shadow-md disabled:opacity-50"
           >
             {loading
-              ? "Posting..."
-              : "Post Tweet"}
+              ? "Publishing..."
+              : "Publish Tweet"}
           </button>
         </form>
       </div>

@@ -15,7 +15,7 @@ export default function HomeNavbar() {
         </span>
 
         <h1 className="text-xl font-bold text-orange-600 transition duration-300 group-hover:text-orange-500 md:text-3xl">
-          Let&apos;s Tweet
+          TweetSpace
         </h1>
       </Link>
 

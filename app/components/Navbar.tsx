@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function Navbar() {
   return (
-    <nav className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 rounded-3xl bg-white px-6 py-4 shadow-sm md:flex-row md:px-12">
+    <nav className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 rounded-3xl bg-white px-6 py-4 shadow-sm md:flex-row md:px-12 ">
       <Link
         href="/"
         className="group flex items-center gap-3"
@@ -11,8 +11,8 @@ export default function Navbar() {
           🕊️
         </span>
 
-        <h1 className="text-lg font-bold text-orange-600 transition duration-300 group-hover:text-orange-500 md:text-4xl">
-          Let&apos;s Tweet
+        <h1 className="text-lg font-bold text-orange-600 transition duration-300 group-hover:text-orange-500 md:text-2xl hover:-translate-y-1 hover:scale-100">
+          TweetSpace
         </h1>
       </Link>
 
