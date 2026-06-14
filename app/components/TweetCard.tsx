@@ -57,6 +57,7 @@ export default function TweetCard({ post }: TweetCardProps) {
   return (
     <Link
       href={`/home/${post._id}`}
+      prefetch={false}
       className="block rounded-3xl bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
     >
       <div className="flex gap-4">
