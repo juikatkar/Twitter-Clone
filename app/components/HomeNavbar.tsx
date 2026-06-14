@@ -5,7 +5,7 @@ import LogoutButton from "./LogoutButton"
 
 export default function HomeNavbar() {
   return (
-    <nav className="mx-auto my-6 flex max-w-6xl flex-col items-center justify-between gap-6 rounded-3xl bg-white px-6 py-5 shadow-sm md:flex-row md:px-10">
+    <nav className="mx-auto my-4 flex max-w-6xl flex-col items-center justify-between gap-4 rounded-3xl bg-white px-4 py-3 shadow-sm md:flex-row md:px-10">
       <Link
         href="/home"
         className="group flex items-center gap-3"
@@ -14,7 +14,7 @@ export default function HomeNavbar() {
           🕊️
         </span>
 
-        <h1 className="text-xl font-bold text-orange-600 transition duration-300 group-hover:text-orange-500 md:text-3xl">
+        <h1 className="text-xl font-bold text-orange-600 transition duration-300 group-hover:text-orange-500 md:text-2xl">
           TweetSpace
         </h1>
       </Link>

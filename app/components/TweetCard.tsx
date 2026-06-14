@@ -67,23 +67,39 @@ export default function TweetCard({ post }: TweetCardProps) {
         </div>
 
         <div className="flex-1">
-          <div className="flex items-center">
-            <h2 className="text-lg font-bold text-orange-500">
-              {post.user?.name ||
-                "Unknown User"}
-            </h2>
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center">
+            <div className="flex flex-wrap items-center gap-2">
+              <h2 className="text-lg font-bold text-orange-500">
+                {post.user?.name ||
+                  "Unknown User"}
+              </h2>
 
-            <span className="ml-2 text-sm text-gray-500">
-              @
-              {post.user?.username ||
-                "unknown"}
-            </span>
+              <span className="text-sm text-gray-500">
+                @
+                {post.user?.username ||
+                  "unknown"}
+              </span>
+            </div>
 
             {post.createdAt && (
-              <span className="ml-auto text-xs text-gray-400">
+              <span className="text-xs text-gray-400 sm:ml-auto">
                 {new Date(
                   post.createdAt
-                ).toLocaleString()}
+                ).toLocaleDateString(
+                  "en-GB",
+                  {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  }
+                )}
+                {" • "}
+                {new Date(
+                  post.createdAt
+                ).toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
               </span>
             )}
           </div>
@@ -117,7 +133,8 @@ export default function TweetCard({ post }: TweetCardProps) {
               </span>
 
               <span>
-                {post.comments?.length || 0} Comment
+                {post.comments?.length || 0}{" "}
+                Comment
               </span>
             </div>
 

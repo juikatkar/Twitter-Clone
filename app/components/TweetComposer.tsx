@@ -5,7 +5,7 @@ export default function TweetComposer() {
     <div className="rounded-3xl bg-white shadow-sm">
       <div className="p-6">
         <div className="flex items-start gap-4">
-          <h1 className="pt-2 text-xl font-medium text-orange-500 md:text-2xl">
+          <h1 className="pt-2 text-xl font-medium text-orange-500 md:text-xl">
             What's happening?
           </h1>
         </div>

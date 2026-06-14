@@ -63,7 +63,7 @@ export default async function ProfilePage() {
 
         <section className="mt-6 rounded-3xl bg-white p-6 shadow-sm">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-orange-500 text-2xl font-bold text-white">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500 text-2xl font-bold text-white">
               {user.name?.charAt(0).toUpperCase()}
             </div>
 

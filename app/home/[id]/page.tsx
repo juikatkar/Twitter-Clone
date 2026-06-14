@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import Link from "next/link"
 import connectDB from "@/app/lib/mongodb"
 import Tweet from "@/app/models/Tweet"
@@ -17,6 +19,7 @@ export default async function TweetPage({ params }: PageProps) {
   const tweet = await Tweet.findById(id)
     .populate("user", "name username email")
     .populate("comments.user", "name username")
+    .lean()
 
   if (!tweet) {
     return (
@@ -80,7 +83,8 @@ export default async function TweetPage({ params }: PageProps) {
             </span>
           </div>
         </div>
-        <CommentForm tweetId={tweet._id.toString()} />
+
+        <CommentForm tweetId={String(tweet._id)} />
 
         <div className="mt-8 border-t pt-6">
           <h3 className="text-xl font-bold text-orange-500">
@@ -96,7 +100,7 @@ export default async function TweetPage({ params }: PageProps) {
 
             {tweet.comments.map((comment: any) => (
               <div
-                key={comment._id.toString()}
+                key={String(comment._id)}
                 className="rounded-2xl bg-orange-50 p-4"
               >
                 <div className="flex items-center gap-2">
