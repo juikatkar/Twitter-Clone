@@ -33,9 +33,7 @@ export default function PostTweetPage() {
       if (!res.ok) {
         throw new Error("Failed to create tweet")
       }
-
-      router.push("/home")
-      router.refresh()
+      window.location.href = "/home"
     } catch (error) {
       console.log(error)
       alert("Something went wrong")
@@ -49,6 +47,7 @@ export default function PostTweetPage() {
       <div className="mx-auto max-w-2xl rounded-[2rem] bg-white p-7 shadow-xl">
         <Link
           href="/home"
+          prefetch={false}
           className="text-sm font-medium text-blue-600 hover:underline"
         >
           ← Back
