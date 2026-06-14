@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import Link from "next/link"
+import BackToHomeButton from "@/app/components/BackToHomeButton"
 
 export default function PostTweetPage() {
   const router = useRouter()
@@ -45,13 +45,7 @@ export default function PostTweetPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-pink-100 via-orange-100 to-yellow-100 px-5 py-8">
       <div className="mx-auto max-w-2xl rounded-[2rem] bg-white p-7 shadow-xl">
-        <Link
-          href="/home"
-          prefetch={false}
-          className="text-sm font-medium text-blue-600 hover:underline"
-        >
-          ← Back
-        </Link>
+        <BackToHomeButton />
 
         <div className="mt-4 flex flex-col items-center text-center">
           <div className="text-3xl transition duration-300 hover:-translate-y-1 hover:scale-110">

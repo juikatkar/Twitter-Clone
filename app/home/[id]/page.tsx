@@ -1,9 +1,9 @@
 export const dynamic = "force-dynamic"
 
-import Link from "next/link"
 import connectDB from "@/app/lib/mongodb"
 import Tweet from "@/app/models/Tweet"
 import CommentForm from "@/app/components/CommentForm"
+import BackToHomeButton from "@/app/components/BackToHomeButton"
 
 type PageProps = {
   params: Promise<{
@@ -29,12 +29,7 @@ export default async function TweetPage({ params }: PageProps) {
             Tweet not found
           </p>
 
-          <Link
-            href="/home"
-            className="mt-4 inline-block text-base text-blue-600 hover:underline"
-          >
-            ← Back to Home
-          </Link>
+         <BackToHomeButton />
         </div>
       </main>
     )
@@ -43,12 +38,7 @@ export default async function TweetPage({ params }: PageProps) {
   return (
     <main className="min-h-screen bg-gradient-to-br from-pink-100 via-orange-100 to-yellow-100 p-5 md:p-6">
       <article className="mx-auto max-w-2xl rounded-3xl bg-white p-6 shadow-sm md:p-8">
-        <Link
-          href="/home"
-          className="text-base text-blue-600 hover:underline"
-        >
-          ← Back
-        </Link>
+        <BackToHomeButton />
 
         <div className="mt-6 flex gap-4">
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white">

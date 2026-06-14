@@ -4,6 +4,7 @@ import Link from "next/link"
 import connectDB from "@/app/lib/mongodb"
 import User from "@/app/models/User"
 import Tweet from "@/app/models/Tweet"
+import BackToHomeButton from "@/app/components/BackToHomeButton"
 
 type JwtPayload = {
   userId: string
@@ -54,12 +55,7 @@ export default async function ProfilePage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-pink-100 via-orange-100 to-yellow-100 p-5">
       <div className="mx-auto max-w-3xl">
-        <Link
-          href="/home"
-          className="text-base text-blue-600 hover:underline"
-        >
-          ← Back to Home
-        </Link>
+       <BackToHomeButton />
 
         <section className="mt-6 rounded-3xl bg-white p-6 shadow-sm">
           <div className="flex items-center gap-4">
