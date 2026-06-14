@@ -20,15 +20,15 @@ export default async function TweetPage({ params }: PageProps) {
 
   if (!tweet) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-pink-100 via-orange-100 to-yellow-100 p-8">
-        <div className="mx-auto max-w-3xl rounded-3xl bg-white p-10 shadow-sm">
-          <p className="text-2xl font-bold text-orange-500">
+      <main className="min-h-screen bg-gradient-to-br from-pink-100 via-orange-100 to-yellow-100 p-6">
+        <div className="mx-auto max-w-2xl rounded-3xl bg-white p-8 shadow-sm">
+          <p className="text-xl font-bold text-orange-500">
             Tweet not found
           </p>
 
           <Link
             href="/home"
-            className="mt-6 inline-block text-xl text-blue-600 hover:underline"
+            className="mt-4 inline-block text-base text-blue-600 hover:underline"
           >
             ← Back to Home
           </Link>
@@ -38,57 +38,58 @@ export default async function TweetPage({ params }: PageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-100 via-orange-100 to-yellow-100 p-6 md:p-8">
-      <article className="mx-auto max-w-3xl rounded-3xl bg-white p-8 shadow-sm md:p-10">
-        <Link href="/home" className="text-xl text-blue-600 hover:underline">
+    <main className="min-h-screen bg-gradient-to-br from-pink-100 via-orange-100 to-yellow-100 p-5 md:p-6">
+      <article className="mx-auto max-w-2xl rounded-3xl bg-white p-6 shadow-sm md:p-8">
+        <Link
+          href="/home"
+          className="text-base text-blue-600 hover:underline"
+        >
           ← Back
         </Link>
 
-        <div className="mt-10 flex gap-5">
-          <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-orange-500 text-2xl font-bold text-white">
+        <div className="mt-6 flex gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white">
             {tweet.user?.name?.charAt(0).toUpperCase() || "U"}
           </div>
 
           <div>
-            <h2 className="text-3xl font-bold text-orange-500">
+            <h2 className="text-xl font-bold text-orange-500">
               {tweet.user?.name || "Unknown User"}
             </h2>
 
-            <p className="text-xl text-gray-500">
+            <p className="text-sm text-gray-500">
               @{tweet.user?.username || "unknown"}
             </p>
           </div>
         </div>
 
-        <h1 className="mt-10 text-3xl font-bold text-orange-600">
+        <h1 className="mt-3 text-lg font-bold text-orange-600">
           {tweet.title}
         </h1>
 
-        <p className="mt-8 text-xl leading-10 text-gray-800">
+        <p className="mt-2 text-sm leading-6 text-gray-700">
           {tweet.body}
         </p>
 
-        <div className="mt-6 flex items-center justify-between border-t pt-5 text-lg text-gray-500">
-          <div className="group flex items-center gap-2 rounded-full px-4 py-2">
-            <span className="text-2xl">❤️</span>
+        <div className="mt-4 border-t pt-3">
+          <div className="flex items-center gap-1.5 text-sm text-gray-500">
+            <span>❤️</span>
 
-            <span className="font-medium">
-              {tweet.likes?.length || 0} Like
+            <span>
+              {tweet.likes?.length || 0} Likes
             </span>
           </div>
-
         </div>
-
         <CommentForm tweetId={tweet._id.toString()} />
 
-        <div className="mt-10 border-t pt-8">
-          <h3 className="text-2xl font-bold text-orange-500">
+        <div className="mt-8 border-t pt-6">
+          <h3 className="text-xl font-bold text-orange-500">
             Comments
           </h3>
 
-          <div className="mt-6 space-y-4">
+          <div className="mt-4 space-y-3">
             {tweet.comments.length === 0 && (
-              <p className="text-gray-500">
+              <p className="text-sm text-gray-500">
                 No comments yet. Be the first to comment.
               </p>
             )}
@@ -96,19 +97,19 @@ export default async function TweetPage({ params }: PageProps) {
             {tweet.comments.map((comment: any) => (
               <div
                 key={comment._id.toString()}
-                className="rounded-2xl bg-orange-50 p-5"
+                className="rounded-2xl bg-orange-50 p-4"
               >
                 <div className="flex items-center gap-2">
-                  <p className="font-bold text-orange-600">
+                  <p className="text-sm font-bold text-orange-600">
                     {comment.user?.name || "Unknown User"}
                   </p>
 
-                  <span className="text-gray-500">
+                  <span className="text-xs text-gray-500">
                     @{comment.user?.username || "unknown"}
                   </span>
                 </div>
 
-                <p className="mt-3 text-lg text-gray-800">
+                <p className="mt-2 text-sm leading-6 text-gray-800">
                   {comment.text}
                 </p>
               </div>

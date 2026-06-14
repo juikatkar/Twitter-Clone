@@ -52,29 +52,29 @@ export default function LoginPage() {
           ← Back
         </Link>
 
-        <h1 className="mt-8 text-4xl font-bold text-orange-500 md:text-5xl">
+        <h1 className="mt-8 text-xl font-bold text-orange-500 md:text-2xl">
           Login
         </h1>
 
-        <form onSubmit={handleSubmit} className="mt-10 space-y-6">
+        <form onSubmit={handleSubmit} className="mt-4 space-y-4">
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-5 text-xl text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500" />
+            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-3 text-lg text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500" />
 
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-5 text-xl text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500" />
+            className="w-full rounded-2xl border border-orange-200 bg-orange-50 p-3 text-lg text-gray-900 placeholder:text-gray-400 outline-none focus:border-orange-500" />
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-2xl bg-orange-500 py-5 text-2xl font-bold text-white transition hover:bg-orange-600 disabled:opacity-50"
+            className="w-full rounded-2xl bg-orange-500 py-3 text-xl font-bold text-white transition hover:bg-orange-600 disabled:opacity-50"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
